@@ -1,0 +1,91 @@
+{
+  "project_info": {
+    "project_number": "989212230771",
+    "firebase_url": "https://nc-flutter-firebase-default-rtdb.firebaseio.com",
+    "project_id": "nc-flutter-firebase",
+    "storage_bucket": "nc-flutter-firebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:989212230771:android:a74198aa51fdb095ff1606",
+        "android_client_info": {
+          "package_name": "com.example.nc_flutter_firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "989212230771-kcs6jdgdjq7c2ltng1obl1tffsbqn3pf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.nc_flutter_firebase",
+            "certificate_hash": "61027cfa2144a6a073a4b8234e5f04bed10f5c53"
+          }
+        },
+        {
+          "client_id": "989212230771-n8254ucfponae3hcp5d0kaff79hugvvf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCygPY2VYznTiEGnBo9LU_GMmv0lVtx6Hw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "989212230771-f9k7s37tthpmbe2rsk6093rmu5a02c5n.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "989212230771-cmporqk7aono6219dm8eteh21kq67b2l.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.latihan.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:989212230771:android:c0798f12291f013cff1606",
+        "android_client_info": {
+          "package_name": "com.example.nc_flutter_firebase_template"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "989212230771-n8254ucfponae3hcp5d0kaff79hugvvf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCygPY2VYznTiEGnBo9LU_GMmv0lVtx6Hw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "989212230771-f9k7s37tthpmbe2rsk6093rmu5a02c5n.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "989212230771-cmporqk7aono6219dm8eteh21kq67b2l.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.latihan.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
