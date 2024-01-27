@@ -50,22 +50,20 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBI2w3eEz30oWC-vbkrhzmF1DlxcnSatuY',
-    appId: '1:989212230771:web:63f68f3e713e6d31ff1606',
-    messagingSenderId: '989212230771',
-    projectId: 'nc-flutter-firebase',
-    authDomain: 'nc-flutter-firebase.firebaseapp.com',
-    databaseURL: 'https://nc-flutter-firebase-default-rtdb.firebaseio.com',
-    storageBucket: 'nc-flutter-firebase.appspot.com',
-    measurementId: 'G-3LSZD0KBLH',
+    apiKey: 'AIzaSyBL6P-8cB4jKRQ_jVPL-EMaCOGhMyNSvTo',
+    appId: '1:60114445530:web:0f0010f6e68320b939f1e3',
+    messagingSenderId: '60114445530',
+    projectId: 'nc-flutter-firebase-template',
+    authDomain: 'nc-flutter-firebase-template.firebaseapp.com',
+    storageBucket: 'nc-flutter-firebase-template.appspot.com',
+    measurementId: 'G-E6K59S6L64',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCygPY2VYznTiEGnBo9LU_GMmv0lVtx6Hw',
-    appId: '1:989212230771:android:c0798f12291f013cff1606',
-    messagingSenderId: '989212230771',
-    projectId: 'nc-flutter-firebase',
-    databaseURL: 'https://nc-flutter-firebase-default-rtdb.firebaseio.com',
-    storageBucket: 'nc-flutter-firebase.appspot.com',
+    apiKey: 'AIzaSyB5x2pNZRKN2NYyE2xHohdW5XkhAm4p8MI',
+    appId: '1:60114445530:android:a7e0dd24ba01734b39f1e3',
+    messagingSenderId: '60114445530',
+    projectId: 'nc-flutter-firebase-template',
+    storageBucket: 'nc-flutter-firebase-template.appspot.com',
   );
 }

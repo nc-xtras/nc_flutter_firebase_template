@@ -7,6 +7,5 @@ void main() async {
   // await Mocks.instance.init();
 
   await inits();
-
   runApp(const App());
 }

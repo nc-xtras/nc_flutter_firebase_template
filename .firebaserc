@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "nc-flutter-firebase"
-  }
+    "default": "nc-flutter-firebase-template",
+    "staging": "nc-flutter-firebase-template"
+  },
+  "targets": {},
+  "etags": {}
 }
