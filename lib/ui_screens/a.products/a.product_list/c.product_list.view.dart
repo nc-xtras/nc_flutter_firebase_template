@@ -6,32 +6,34 @@ class ProductListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const PreferredSize(
-        preferredSize: Size.fromHeight(56),
-        child: ProductListAppbar(),
+      appBar: AppBar(
+        actions: [
+          ElevatedButton(
+            onPressed: () {
+              _ct.deleteAccount();
+              // Route route = MaterialPageRoute(builder: (context) => const LoginView());
+              // Navigator.pushReplacement(context, route);
+            },
+            child: const Text(
+              "Delete Account",
+            ),
+          ),
+        ],
+        title: const Text('ProductList View'),
       ),
       floatingActionButton: const ProductListFab(),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const ProductListCharlie(),
-            const ProductListDelta(),
-            const ProductListEcho(),
-            ElevatedButton(
-              onPressed: () async {
-                final test = await FirebaseFirestore.instance.collection('indah').get();
-
-                debugPrint(test.toString());
-                debugPrint(test.docs[0].data().toString());
-                debugPrint(test.docs[0].id.toString());
-                debugPrint(test.docs[0]['indah'].toString());
-              },
-              child: const Text(
-                "Elevated Button",
-              ),
-            ),
-          ],
+      body: OnBuilder<List<Product>>.all(
+        listenToMany: [
+          _dt.rxLoadMore,
+        ],
+        onWaiting: () => _dt.rxProductList.state.isEmpty
+            ? const Center(
+                child: CircularProgressIndicator(),
+              )
+            : OnReactive(() => const ProductList()),
+        onError: (error, refreshError) => Text(error),
+        onData: (data) => OnReactive(
+          () => const ProductList(),
         ),
       ),
     );

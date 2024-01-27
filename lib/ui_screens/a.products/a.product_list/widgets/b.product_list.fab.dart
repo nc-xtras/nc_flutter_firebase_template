@@ -1,16 +1,21 @@
 part of '../_index.dart';
 
 class ProductListFab extends StatelessWidget {
-  const ProductListFab({super.key});
+  const ProductListFab({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
-      child: const Icon(Icons.add),
+      heroTag: null,
       onPressed: () {
-        _ct.increaseCounter();
-        _ct.updateRandom();
+        // Navigator.push(
+        //   context,
+        //   MaterialPageRoute(builder: (context) => const ProductAddView()),
+        // );
       },
+      child: const Icon(Icons.add),
     );
   }
 }
