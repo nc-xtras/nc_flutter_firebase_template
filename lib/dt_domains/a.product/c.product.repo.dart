@@ -67,4 +67,20 @@ class ProductRepo {
 
     return await task.ref.getDownloadURL();
   }
+
+  // * ------------ read detail ----------------
+
+  Future<Product> getDoc() async {
+    final result = await FirebaseFirestore.instance.collection(_pv.docCol).doc(_pv.rxSelectedId.state).get();
+    final productDetail = Product.fromMap(result.data() ?? {});
+    return productDetail;
+  }
+
+// * ------------ delete 1 product ----------------
+
+  Future<void> deleteDoc() async {
+    await FirebaseFirestore.instance.collection('product').doc(_pv.rxSelectedId.state).delete();
+    await FirebaseFirestore.instance.collection('productDetail').doc(_pv.rxSelectedId.state).delete();
+    await FirebaseStorage.instance.ref(_pv.rxSelectedId.state).delete();
+  }
 }

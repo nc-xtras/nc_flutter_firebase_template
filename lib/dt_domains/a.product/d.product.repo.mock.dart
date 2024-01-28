@@ -32,4 +32,14 @@ class ProductRepoMock implements ProductRepo {
   Future<String> uploadImage(String id) {
     throw UnimplementedError();
   }
+
+  @override
+  Future<void> deleteDoc() {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<Product> getDoc() {
+    throw UnimplementedError();
+  }
 }

@@ -9,10 +9,6 @@ class ProductListCtrl {
 
   readGetCol() => _sv.readGetCol();
 
-  addColToUserList(List<Product> moreProduct) {
-    _sv.addColToUserList(moreProduct);
-  }
-
   selectedId(String id) => _sv.selectedId(id);
 
   deleteAccount() => _sv.deleteAccount();

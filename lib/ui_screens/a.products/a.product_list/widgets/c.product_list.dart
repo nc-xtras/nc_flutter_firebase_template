@@ -26,10 +26,10 @@ class ProductList extends StatelessWidget {
                         subtitle: Text(_dt.rxProductList.state[index].createdAt),
                         onTap: () {
                           _ct.selectedId(_dt.rxProductList.state[index].id);
-                          // Navigator.push(
-                          //   context,
-                          //   MaterialPageRoute(builder: (context) => const ProductDetailView()),
-                          // );
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const ProductDetailView()),
+                          );
                           debugPrint(_dt.rxSelectedId.state);
                         },
                         selected: _dt.rxSelectedId.state == _dt.rxProductList.state[index].id,

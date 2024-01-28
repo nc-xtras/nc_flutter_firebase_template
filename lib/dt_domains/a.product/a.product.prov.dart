@@ -41,4 +41,14 @@ class ProductProv {
   final rxPickedImage = RM.inject<XFile?>(() => null);
 
   final rxImageUrl = RM.inject(() => '');
+
+  // * ------------ add product ----------------
+  final rxProductDetail = RM.injectFuture<Product?>(
+    () => Future.value(null),
+    sideEffects: SideEffects(
+      initState: () => _sv.readGetDoc(),
+    ),
+  );
+
+  final docCol = 'productDetail';
 }

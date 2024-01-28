@@ -40,4 +40,16 @@ class ProductServ {
   uploadImage(String id) async => await _rp.uploadImage(id);
 
   pickImage() async => await ImagePicker().pickImage(source: ImageSource.gallery);
+
+  // * ------------ detail product ----------------
+
+  readGetDoc() {
+    _pv.rxProductDetail.stateAsync = _rp.getDoc();
+  }
+
+  deleteDoc() async {
+    await _rp.deleteDoc();
+    _pv.rxProductList.state = [..._pv.rxProductList.state]
+      ..removeWhere((element) => element.id == _pv.rxSelectedId.state);
+  }
 }
