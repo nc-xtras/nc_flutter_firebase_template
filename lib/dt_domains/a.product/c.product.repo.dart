@@ -83,4 +83,19 @@ class ProductRepo {
     await FirebaseFirestore.instance.collection('productDetail').doc(_pv.rxSelectedId.state).delete();
     await FirebaseStorage.instance.ref(_pv.rxSelectedId.state).delete();
   }
+
+  // * ------------ update product ----------------
+
+  Future<void> editDoc(Product editData) async {
+    await FirebaseFirestore.instance.collection('product').doc(editData.id).set(
+      {
+        'name': editData.name,
+        'price': editData.price,
+        'id': editData.id,
+        'created_at': editData.createdAt,
+        'image_url': editData.imageUrl,
+      },
+    );
+    await FirebaseFirestore.instance.collection('productDetail').doc(editData.id).set(editData.toMap());
+  }
 }

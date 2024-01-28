@@ -52,4 +52,8 @@ class ProductServ {
     _pv.rxProductList.state = [..._pv.rxProductList.state]
       ..removeWhere((element) => element.id == _pv.rxSelectedId.state);
   }
+
+  // * ------------ edit product ----------------
+
+  editProduct(Product editData) async => await _rp.editDoc(editData);
 }

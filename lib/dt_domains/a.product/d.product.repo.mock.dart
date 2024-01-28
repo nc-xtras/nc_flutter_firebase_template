@@ -42,4 +42,9 @@ class ProductRepoMock implements ProductRepo {
   Future<Product> getDoc() {
     throw UnimplementedError();
   }
+
+  @override
+  Future<void> editDoc(Product editData) {
+    throw UnimplementedError();
+  }
 }
