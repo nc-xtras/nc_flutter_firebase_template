@@ -13,6 +13,8 @@ class ProductServ {
     logzz.i(ProductServ, 'rxCounter setState success');
   }
 
+  // * ------------ list product ----------------
+
   selectedId(String id) {
     _pv.rxSelectedId.refresh();
     _pv.rxSelectedId.state = id;
@@ -30,4 +32,12 @@ class ProductServ {
   }
 
   deleteAccount() => _rp.deleteAccount();
+
+  // * ------------ add product ----------------
+
+  addProductList(Product data) async => await _rp.createDoc(data);
+
+  uploadImage(String id) async => await _rp.uploadImage(id);
+
+  pickImage() async => await ImagePicker().pickImage(source: ImageSource.gallery);
 }

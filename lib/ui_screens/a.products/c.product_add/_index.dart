@@ -1,9 +1,11 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:nc_flutter_firebase_template/dt_domains/_models/_index.dart';
 import 'package:states_rebuilder/states_rebuilder.dart';
 
 import '../../../app/_index.dart';
+import '../../../dt_domains/a.product/_index.dart';
 import '../../../xtras/_index.dart';
 
 part 'a.product_add.data.dart';
@@ -17,3 +19,6 @@ part 'widgets/e.product_add.echo.dart';
 
 ProductAddData get _dt => Data.productAdd.st;
 ProductAddCtrl get _ct => Ctrl.productAdd;
+
+ProductProv get _pv => Prov.product.st;
+ProductServ get _sv => Serv.product;

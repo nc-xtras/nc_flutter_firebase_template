@@ -8,6 +8,9 @@ class ProductProv {
       onSetState: (p0) => _sv.onSetState(),
     ),
   );
+
+  // * ------------ list product ----------------
+
   final rxProductList = RM.inject<List<Product>>(
     () => [],
   );
@@ -32,4 +35,10 @@ class ProductProv {
   final listCol = 'product';
 
   final rxSelectedId = RM.inject<String>(() => '');
+
+  // * ------------ add product ----------------
+
+  final rxPickedImage = RM.inject<XFile?>(() => null);
+
+  final rxImageUrl = RM.inject(() => '');
 }

@@ -22,4 +22,14 @@ class ProductRepoMock implements ProductRepo {
   Future<List<Product>> getColNoSA() {
     throw UnimplementedError();
   }
+
+  @override
+  Future<void> createDoc(Product data) {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<String> uploadImage(String id) {
+    throw UnimplementedError();
+  }
 }

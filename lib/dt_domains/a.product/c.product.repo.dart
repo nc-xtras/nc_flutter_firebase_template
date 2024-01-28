@@ -40,4 +40,31 @@ class ProductRepo {
   deleteAccount() async {
     await FirebaseAuth.instance.currentUser!.delete();
   }
+
+  // * ------------ create product ----------------
+
+  Future<void> createDoc(Product data) async {
+    await FirebaseFirestore.instance.collection('product').doc(data.id).set(
+      {
+        'name': data.name,
+        'price': data.price,
+        'id': data.id,
+        'created_at': data.createdAt,
+        'image_url': data.imageUrl,
+      },
+    );
+    await FirebaseFirestore.instance.collection('productDetail').doc(data.id).set(data.toMap());
+  }
+
+// * ------------ upload storage ----------------
+  Future<String> uploadImage(String id) async {
+    final imageType = _pv.rxPickedImage.state!.mimeType;
+    final imageBytes = await _pv.rxPickedImage.state!.readAsBytes();
+    final task = await FirebaseStorage.instance.ref(id).putData(
+          imageBytes,
+          SettableMetadata(contentType: imageType),
+        );
+
+    return await task.ref.getDownloadURL();
+  }
 }

@@ -10,10 +10,10 @@ class ProductListFab extends StatelessWidget {
     return FloatingActionButton(
       heroTag: null,
       onPressed: () {
-        // Navigator.push(
-        //   context,
-        //   MaterialPageRoute(builder: (context) => const ProductAddView()),
-        // );
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const ProductAddView()),
+        );
       },
       child: const Icon(Icons.add),
     );
