@@ -14,11 +14,6 @@ class ProductRepoMock implements ProductRepo {
   }
 
   @override
-  Future<List<Product>> getColNoSA() {
-    throw UnimplementedError();
-  }
-
-  @override
   Future<void> createDoc(Product data) {
     throw UnimplementedError();
   }

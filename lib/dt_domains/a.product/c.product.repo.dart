@@ -8,34 +8,37 @@ class ProductRepo {
   }
 
   // * -------------- read list ----------------
+
   Future<List<Product>> getCol() async {
     List<Product> products = [];
-    final result = await FirebaseFirestore.instance
-        .collection(_pv.listCol)
-        .orderBy('created_at', descending: true)
-        .limit(_pv.limit)
-        .startAfter(
-      [_pv.rxProductList.state.isEmpty ? '9999-99-9' : _pv.rxProductList.state.last.createdAt],
-      // [_pv.rxLoadMore.state.isEmpty ? '9999-99-9' : _pv.rxLoadMore.state.last.createdAt],
-    ).get();
+
+    final result = await x1FbFirestore.readCollection(
+      colId: _pv.listCol,
+      limit: _pv.limit,
+      lastCreateTime: _pv.rxProductList.state.isEmpty ? '9999-99-9' : _pv.rxProductList.state.last.createdAt,
+    );
+
     for (var element in result.docs) {
       products.add(Product.fromMap(element.data()));
     }
     return products;
   }
 
-  Future<List<Product>> getColNoSA() async {
-    List<Product> products = [];
-    final result = await FirebaseFirestore.instance
-        .collection(_pv.listCol)
-        .limit(_pv.limit)
-        .orderBy('created_at', descending: true)
-        .get();
-    for (var element in result.docs) {
-      products.add(Product.fromMap(element.data()));
-    }
-    return products;
-  }
+  // Future<List<Product>> getCol() async {
+  //   List<Product> products = [];
+  //   final result = await FirebaseFirestore.instance
+  //       .collection(_pv.listCol)
+  //       .orderBy('created_at', descending: true)
+  //       .limit(_pv.limit)
+  //       .startAfter(
+  //     [_pv.rxProductList.state.isEmpty ? '9999-99-9' : _pv.rxProductList.state.last.createdAt],
+  //     // [_pv.rxLoadMore.state.isEmpty ? '9999-99-9' : _pv.rxLoadMore.state.last.createdAt],
+  //   ).get();
+  //   for (var element in result.docs) {
+  //     products.add(Product.fromMap(element.data()));
+  //   }
+  //   return products;
+  // }
 
   // * ------------ create product ----------------
 
@@ -67,18 +70,34 @@ class ProductRepo {
   // * ------------ read detail ----------------
 
   Future<Product> getDoc() async {
-    final result = await FirebaseFirestore.instance.collection(_pv.docCol).doc(_pv.rxSelectedId.state).get();
+    final result = await x1FbFirestore.readDocument(
+      colId: _pv.docCol,
+      docId: _pv.rxSelectedId.st,
+    );
     final productDetail = Product.fromMap(result.data() ?? {});
     return productDetail;
   }
+  // Future<Product> getDoc() async {
+  //   final result = await FirebaseFirestore.instance.collection(_pv.docCol).doc(_pv.rxSelectedId.state).get();
+  //   final productDetail = Product.fromMap(result.data() ?? {});
+  //   return productDetail;
+  // }
 
-// * ------------ delete 1 product ----------------
+// * ------------ delete 1 product 1 image ----------------
 
   Future<void> deleteDoc() async {
-    await FirebaseFirestore.instance.collection('product').doc(_pv.rxSelectedId.state).delete();
-    await FirebaseFirestore.instance.collection('productDetail').doc(_pv.rxSelectedId.state).delete();
-    await FirebaseStorage.instance.ref(_pv.rxSelectedId.state).delete();
+    await x1FbFirestore.deleteDocument(
+      colId: _pv.listCol,
+      colId2: _pv.docCol,
+      refImage: _pv.rxSelectedId.st,
+      docId: _pv.rxSelectedId.st,
+    );
   }
+  // Future<void> deleteDoc() async {
+  //   await FirebaseFirestore.instance.collection('product').doc(_pv.rxSelectedId.state).delete();
+  //   await FirebaseFirestore.instance.collection('productDetail').doc(_pv.rxSelectedId.state).delete();
+  //   await FirebaseStorage.instance.ref(_pv.rxSelectedId.state).delete();
+  // }
 
   // * ------------ update product ----------------
 
