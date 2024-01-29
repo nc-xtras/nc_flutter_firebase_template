@@ -2,7 +2,6 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:nc_flutter_firebase_template/dt_domains/_index.dart';
-import 'package:nc_flutter_firebase_template/ui_screens/a.products/a.product_list/_index.dart';
 import 'package:states_rebuilder/states_rebuilder.dart';
 
 import '../../app/_index.dart';

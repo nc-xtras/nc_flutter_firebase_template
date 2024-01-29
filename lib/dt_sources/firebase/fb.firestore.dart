@@ -4,7 +4,6 @@ final x1FbFirestore = FbFirestore();
 
 class FbFirestore {
   final instance = FirebaseFirestore.instance;
-  final instanceStorage = FirebaseStorage.instance;
 
   //* read multiple items
   Future<dynamic> readCollection({
@@ -39,13 +38,11 @@ class FbFirestore {
   Future<void> deleteDocument({
     required String colId,
     required String colId2,
-    required String refImage,
     required String docId,
   }) async {
     try {
       await instance.collection(colId).doc(docId).delete();
       await instance.collection(colId2).doc(docId).delete();
-      await instanceStorage.ref(refImage).delete();
     } catch (e) {
       logxx.e(FbFirestore, 'error on delete. ${e.toString()}');
     }

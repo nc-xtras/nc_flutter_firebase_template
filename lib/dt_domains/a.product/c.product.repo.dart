@@ -59,13 +59,22 @@ class ProductRepo {
   Future<String> uploadImage(String id) async {
     final imageType = _pv.rxPickedImage.state!.mimeType;
     final imageBytes = await _pv.rxPickedImage.state!.readAsBytes();
-    final task = await FirebaseStorage.instance.ref(id).putData(
-          imageBytes,
-          SettableMetadata(contentType: imageType),
-        );
-
-    return await task.ref.getDownloadURL();
+    return await x1FbStorage.uploadImagex(
+      id: id,
+      imageBytes: imageBytes,
+      imageType: imageType,
+    );
   }
+  // Future<String> uploadImage(String id) async {
+  //   final imageType = _pv.rxPickedImage.state!.mimeType;
+  //   final imageBytes = await _pv.rxPickedImage.state!.readAsBytes();
+  //   final task = await FirebaseStorage.instance.ref(id).putData(
+  //         imageBytes,
+  //         SettableMetadata(contentType: imageType),
+  //       );
+
+  //   return await task.ref.getDownloadURL();
+  // }
 
   // * ------------ read detail ----------------
 
@@ -89,9 +98,9 @@ class ProductRepo {
     await x1FbFirestore.deleteDocument(
       colId: _pv.listCol,
       colId2: _pv.docCol,
-      refImage: _pv.rxSelectedId.st,
       docId: _pv.rxSelectedId.st,
     );
+    await x1FbStorage.deleteOneImage(_pv.rxSelectedId.st);
   }
   // Future<void> deleteDoc() async {
   //   await FirebaseFirestore.instance.collection('product').doc(_pv.rxSelectedId.state).delete();
