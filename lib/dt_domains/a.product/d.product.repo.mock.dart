@@ -9,11 +9,6 @@ class ProductRepoMock implements ProductRepo {
   }
 
   @override
-  deleteAccount() {
-    throw UnimplementedError();
-  }
-
-  @override
   Future<List<Product>> getCol() {
     throw UnimplementedError();
   }

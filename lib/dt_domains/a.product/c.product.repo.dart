@@ -37,10 +37,6 @@ class ProductRepo {
     return products;
   }
 
-  deleteAccount() async {
-    await FirebaseAuth.instance.currentUser!.delete();
-  }
-
   // * ------------ create product ----------------
 
   Future<void> createDoc(Product data) async {

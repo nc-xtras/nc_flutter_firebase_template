@@ -11,5 +11,5 @@ class ProductListCtrl {
 
   selectedId(String id) => _sv.selectedId(id);
 
-  deleteAccount() => _sv.deleteAccount();
+  deleteAccount() => _svA.deleteAccount();
 }

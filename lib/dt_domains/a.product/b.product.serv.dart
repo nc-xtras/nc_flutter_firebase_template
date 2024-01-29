@@ -31,8 +31,6 @@ class ProductServ {
     }
   }
 
-  deleteAccount() => _rp.deleteAccount();
-
   // * ------------ add product ----------------
 
   addProductList(Product data) async => await _rp.createDoc(data);

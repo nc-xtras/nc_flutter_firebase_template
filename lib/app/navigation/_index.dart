@@ -1,6 +1,7 @@
 import 'package:states_rebuilder/states_rebuilder.dart';
 
 import '../../ui_screens/_index.dart';
+import '../../xtras/_index.dart';
 
 part 'a.inject.dart';
 part 'b.routes.dart';

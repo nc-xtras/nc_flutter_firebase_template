@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nc_flutter_firebase_template/dt_domains/_models/_index.dart';
+import 'package:nc_flutter_firebase_template/dt_domains/b.auth/_index.dart';
 import 'package:nc_flutter_firebase_template/ui_screens/a.products/b.product_detail/_index.dart';
 import 'package:nc_flutter_firebase_template/ui_screens/a.products/c.product_add/_index.dart';
 import 'package:states_rebuilder/states_rebuilder.dart';
@@ -22,4 +23,6 @@ ProductListCtrl get _ct => Ctrl.productList;
 
 ProductProv get _pv => Prov.product.st;
 ProductServ get _sv => Serv.product;
+AuthServ get _svA => Serv.auth;
+
 // ProductRepo get _rp => Repo.product.st;

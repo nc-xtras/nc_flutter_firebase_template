@@ -5,3 +5,5 @@ export 'a.products/b.product_detail/_index.dart';
 export 'a.products/c.product_add/_index.dart';
 
 export 'a.products/d.product_edit/_index.dart';
+
+export 'b.login/_index.dart';
