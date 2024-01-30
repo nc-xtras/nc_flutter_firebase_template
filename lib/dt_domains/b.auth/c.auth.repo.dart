@@ -8,15 +8,20 @@ class AuthRepo {
   }
 
   signInAnonymous() async {
-    await FirebaseAuth.instance.signInAnonymously();
+    await x1FbAuth.st.signInAnonymously();
+    // await FirebaseAuth.instance.signInAnonymously();
   }
 
   signInByGoogle() async {
-    final GoogleAuthProvider provider = GoogleAuthProvider().setCustomParameters({'prompt': 'select_account'});
-    await FirebaseAuth.instance.signInWithPopup(provider);
+    await x1FbAuth.st.signInWithGoogle();
+
+    // final GoogleAuthProvider provider = GoogleAuthProvider().setCustomParameters({'prompt': 'select_account'});
+    // await FirebaseAuth.instance.signInWithPopup(provider);
   }
 
   deleteAccount() async {
-    await FirebaseAuth.instance.currentUser!.delete();
+    await x1FbAuth.st.deleteAccount(_pv.rxUser.st);
+
+    // await FirebaseAuth.instance.currentUser!.delete();
   }
 }
