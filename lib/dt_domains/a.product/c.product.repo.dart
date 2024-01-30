@@ -43,23 +43,38 @@ class ProductRepo {
   // * ------------ create product ----------------
 
   Future<void> createDoc(Product data) async {
-    await FirebaseFirestore.instance.collection('product').doc(data.id).set(
-      {
-        'name': data.name,
-        'price': data.price,
-        'id': data.id,
-        'created_at': data.createdAt,
-        'image_url': data.imageUrl,
-      },
+    await x1FbFirestore.createDocumentForList(
+      colId: _pv.listCol,
+      docId: data.id,
+      name: data.name,
+      price: data.price,
+      createdAt: data.createdAt,
+      imageUrl: data.imageUrl,
     );
-    await FirebaseFirestore.instance.collection('productDetail').doc(data.id).set(data.toMap());
+    await x1FbFirestore.createDocumentForDetail(
+      colId: _pv.docCol,
+      docId: data.id,
+      data: data.toMap(),
+    );
   }
+  // Future<void> createDoc(Product data) async {
+  //   await FirebaseFirestore.instance.collection('product').doc(data.id).set(
+  //     {
+  //       'name': data.name,
+  //       'price': data.price,
+  //       'id': data.id,
+  //       'created_at': data.createdAt,
+  //       'image_url': data.imageUrl,
+  //     },
+  //   );
+  //   await FirebaseFirestore.instance.collection('productDetail').doc(data.id).set(data.toMap());
+  // }
 
 // * ------------ upload storage ----------------
   Future<String> uploadImage(String id) async {
     final imageType = _pv.rxPickedImage.state!.mimeType;
     final imageBytes = await _pv.rxPickedImage.state!.readAsBytes();
-    return await x1FbStorage.uploadImagex(
+    return await x1FbStorage.uploadImage(
       id: id,
       imageBytes: imageBytes,
       imageType: imageType,
@@ -111,15 +126,30 @@ class ProductRepo {
   // * ------------ update product ----------------
 
   Future<void> editDoc(Product editData) async {
-    await FirebaseFirestore.instance.collection('product').doc(editData.id).set(
-      {
-        'name': editData.name,
-        'price': editData.price,
-        'id': editData.id,
-        'created_at': editData.createdAt,
-        'image_url': editData.imageUrl,
-      },
+    await x1FbFirestore.updateDocumentForList(
+      colId: _pv.listCol,
+      docId: editData.id,
+      name: editData.name,
+      price: editData.price,
+      createdAt: editData.createdAt,
+      imageUrl: editData.imageUrl,
     );
-    await FirebaseFirestore.instance.collection('productDetail').doc(editData.id).set(editData.toMap());
+    await x1FbFirestore.updateDocumentForDetail(
+      colId: _pv.docCol,
+      docId: editData.id,
+      editData: editData.toMap(),
+    );
   }
+  // Future<void> editDoc(Product editData) async {
+  //   await FirebaseFirestore.instance.collection('product').doc(editData.id).set(
+  //     {
+  //       'name': editData.name,
+  //       'price': editData.price,
+  //       'id': editData.id,
+  //       'created_at': editData.createdAt,
+  //       'image_url': editData.imageUrl,
+  //     },
+  //   );
+  //   await FirebaseFirestore.instance.collection('productDetail').doc(editData.id).set(editData.toMap());
+  // }
 }

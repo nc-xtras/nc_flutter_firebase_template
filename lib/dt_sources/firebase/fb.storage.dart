@@ -10,12 +10,12 @@ class FbStorage {
     try {
       await instance.ref(refImage).delete();
     } catch (e) {
-      logxx.e(FbStorage, 'error on delete. ${e.toString()}');
+      logxx.e(FbStorage, 'error on delete image. ${e.toString()}');
     }
   }
 
 // * upload single image
-  Future<String> uploadImagex({
+  Future<String> uploadImage({
     required String id,
     required Uint8List imageBytes,
     required String? imageType,

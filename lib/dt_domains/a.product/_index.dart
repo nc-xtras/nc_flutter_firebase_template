@@ -1,6 +1,5 @@
 import 'dart:math';
 
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:nc_flutter_firebase_template/dt_sources/firebase/_index.dart';
 import 'package:states_rebuilder/states_rebuilder.dart';
